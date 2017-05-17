@@ -1,6 +1,4 @@
 def cross_val_function(function,x,y,folds,*args,**kwargs):
-	import numpy as np
-	from threading import Thread
 	"""
 	This is an implementation of K-folds cross validation. Which is used to gain an accurate performance measure
 	for a certain model or estimator. This estimator or model should be in form of a function which returns a
@@ -30,7 +28,9 @@ def cross_val_function(function,x,y,folds,*args,**kwargs):
     cross_val_scores : array
         Array containing the cross validation scores of all folds.
     """
-
+	import numpy as np
+	from threading import Thread
+	
 	num_rows=x.shape[0]
 	fold_size=round(num_rows/folds)
 	cross_val_scores=[]
